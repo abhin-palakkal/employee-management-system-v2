@@ -42,7 +42,12 @@ module.exports.loginAdmin = async (req, res) => {
     const token = jwt.sign({ id: admin._id, role: 'ADMIN' }, process.env.KEY, {
       expiresIn: '7d',
     });
-    return res.status(200).json({ message: 'admin login successfully', token });
+    return res.status(200).json({
+      message: 'admin login successfully',
+      token,
+      role: 'ADMIN',
+      id: admin._id,
+    });
   } catch (error) {
     return res.status(500).json({ message: 'internal server error' });
   }
