@@ -1,9 +1,11 @@
+//import
 import './Dashboard.css';
+import Sidebar from '../../../components/Sidebar/Sidebar';
 
 const Dashboard = () => {
   return (
     <>
-      <h1>DASHBOARD</h1>
+      <Sidebar />
     </>
   );
 };
