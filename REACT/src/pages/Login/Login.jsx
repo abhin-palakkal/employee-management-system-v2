@@ -15,6 +15,8 @@ const Login = () => {
       e.preventDefault();
       const response = await axios.post('/admin/login', data);
       localStorage.setItem('TOKEN', response.data.token);
+      localStorage.setItem('ROLE', response.data.role);
+      localStorage.setItem('ID', response.data.id);
       navigate('/dashboard');
     } catch (error) {
       setError(
