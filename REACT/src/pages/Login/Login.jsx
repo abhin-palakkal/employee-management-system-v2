@@ -17,7 +17,7 @@ const Login = () => {
       localStorage.setItem('TOKEN', response.data.token);
       localStorage.setItem('ROLE', response.data.role);
       localStorage.setItem('ID', response.data.id);
-      navigate('/dashboard');
+      navigate('/admin/dashboard');
     } catch (error) {
       setError(
         error.response?.data?.message ||

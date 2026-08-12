@@ -6,7 +6,9 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const logoutFunction = () => {
     localStorage.removeItem('TOKEN');
-    navigate('/login');
+    localStorage.removeItem('ID');
+    localStorage.removeItem('ROLE');
+    navigate('/admin/login');
   };
   return (
     <aside className="sidebar">
@@ -16,7 +18,7 @@ const Sidebar = () => {
       </div>
       <div className="sidebar-center">
         <NavLink
-          to="/dashboard"
+          to="/admin/dashboard"
           className={({ isActive }) =>
             isActive ? 'sidebar-link active' : 'sidebar-link'
           }
@@ -25,7 +27,7 @@ const Sidebar = () => {
           <span>Dashboard</span>
         </NavLink>
         <NavLink
-          to="/employees"
+          to="/admin/employees"
           className={({ isActive }) =>
             isActive ? 'sidebar-link active' : 'sidebar-link'
           }
@@ -34,7 +36,7 @@ const Sidebar = () => {
           <span>Employees</span>
         </NavLink>
         <NavLink
-          to="/addemployee"
+          to="/admin/addemployee"
           className={({ isActive }) =>
             isActive ? 'sidebar-link active' : 'sidebar-link'
           }
@@ -43,7 +45,7 @@ const Sidebar = () => {
           <span>Add Employee</span>
         </NavLink>
         <NavLink
-          to="/departments"
+          to="/admin/departments"
           className={({ isActive }) =>
             isActive ? 'sidebar-link active' : 'sidebar-link'
           }
@@ -52,7 +54,7 @@ const Sidebar = () => {
           <span>Departments</span>
         </NavLink>
         <NavLink
-          to="/reports"
+          to="/admin/reports"
           className={({ isActive }) =>
             isActive ? 'sidebar-link active' : 'sidebar-link'
           }
@@ -61,7 +63,7 @@ const Sidebar = () => {
           <span>Reports</span>
         </NavLink>
         <NavLink
-          to="/settings"
+          to="/admin/settings"
           className={({ isActive }) =>
             isActive ? 'sidebar-link active' : 'sidebar-link'
           }
