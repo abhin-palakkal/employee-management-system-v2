@@ -1,0 +1,17 @@
+//import
+const express = require('express');
+const chalk = require('chalk');
+const db = require('./db');
+const cors = require('cors');
+
+//connect
+const app = express();
+
+//middleware
+app.use(express.json());
+app.use(cors());
+
+//listen
+app.listen(3000, () => {
+  console.log(chalk.yellow('app is running @http://localhost:3000'));
+});
