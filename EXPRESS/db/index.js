@@ -4,7 +4,7 @@ const chalk = require('chalk');
 
 //connect
 mongoose
-  .connect('mongodb://localhost:27017/myPortfolioDB')
+  .connect('mongodb://localhost:27017/employeeDB')
   .then(() => {
     console.log(chalk.yellow('DB CONNECTED'));
   })
