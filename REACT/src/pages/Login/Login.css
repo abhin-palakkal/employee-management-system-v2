@@ -131,3 +131,16 @@
 .login-button:active {
   transform: translateY(0);
 }
+
+.login-error {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 8px 0 0;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  font-size: 14px;
+  font-weight: 500;
+}
