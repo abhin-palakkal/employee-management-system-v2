@@ -28,9 +28,30 @@ module.exports.postEmployee = async (req, res) => {
 };
 
 //get employee route
+// module.exports.getEmployee = async (req, res) => {
+//   try {
+//     const employee = await Employee.find();
+//     return res.status(200).json(employee);
+//   } catch (error) {
+//     return res.status(500).json({ message: 'internal server error' });
+//   }
+// };
+
+//search and filter
 module.exports.getEmployee = async (req, res) => {
   try {
-    const employee = await Employee.find();
+    const { name, department, position } = req.query;
+    const customQuery = {};
+    if (name) {
+      customQuery.name = name;
+    }
+    if (department) {
+      customQuery.department = department;
+    }
+    if (position) {
+      customQuery.position = position;
+    }
+    const employee = await Employee.find(customQuery);
     return res.status(200).json(employee);
   } catch (error) {
     return res.status(500).json({ message: 'internal server error' });
