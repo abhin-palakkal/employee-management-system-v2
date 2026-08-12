@@ -39,7 +39,7 @@ module.exports.loginAdmin = async (req, res) => {
         .status(401)
         .json({ message: 'email or password is incorrect' });
     }
-    const token = jwt.sign({ id: admin._id }, process.env.KEY, {
+    const token = jwt.sign({ id: admin._id, role: 'ADMIN' }, process.env.KEY, {
       expiresIn: '7d',
     });
     return res.status(200).json({ message: 'admin login successfully', token });

@@ -1,5 +1,6 @@
 //import
 const express = require('express');
+const checkToken = require('../middlewares/checkToken');
 const {
   postEmployee,
   getByIdEmployee,
@@ -12,11 +13,11 @@ const {
 const router = express.Router();
 
 //routes connect
-router.post('/employee', postEmployee);
-router.get('/employee', getEmployee);
-router.get('/employee/:id', getByIdEmployee);
-router.patch('/employee/:id', updateEmployee);
-router.delete('/employee/:id', deleteEmployee);
+router.post('/employee', checkToken('ADMIN'), postEmployee);
+router.get('/employee', checkToken('ADMIN'), getEmployee);
+router.get('/employee/:id', checkToken('ADMIN'), getByIdEmployee);
+router.patch('/employee/:id', checkToken('ADMIN'), updateEmployee);
+router.delete('/employee/:id', checkToken('ADMIN'), deleteEmployee);
 
 //export
 module.exports = router;
