@@ -1,6 +1,6 @@
 import './Login.css';
 import { useState } from 'react';
-import axios from 'axios';
+import axios from '../../../Utils/axios';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -13,10 +13,7 @@ const Login = () => {
   const loginFunction = async e => {
     try {
       e.preventDefault();
-      const response = await axios.post(
-        'http://localhost:3000/api/admin/login',
-        data
-      );
+      const response = await axios.post('/admin/login', data);
       localStorage.setItem('TOKEN', response.data.token);
       navigate('/dashboard');
     } catch (error) {
