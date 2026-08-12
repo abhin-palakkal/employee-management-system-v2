@@ -54,8 +54,23 @@ const Employees = () => {
 
   return (
     <DashboardLayout>
-      <h1>Employees</h1>
-      <Table columns={columns} dataSource={data} rowKey="_id" />
+      <div className="employees-page">
+        <div className="employees-header">
+          <div>
+            <h1>Employee List</h1>
+            <p>Manage and view all employees</p>
+          </div>
+
+          <button className="add-employee-button">
+            <i className="fa-solid fa-user-plus"></i>
+            Add Employee
+          </button>
+        </div>
+
+        <div className="employees-table-card">
+          <Table columns={columns} dataSource={data} rowKey="_id" />
+        </div>
+      </div>
     </DashboardLayout>
   );
 };
