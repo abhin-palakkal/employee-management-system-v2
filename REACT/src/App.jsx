@@ -1,10 +1,13 @@
+//import
 import { Route, Routes } from 'react-router-dom';
+import Login from './pages/Login/Login';
+
+//function
 const App = () => {
   return (
     <>
       <Routes>
-        <Route />
-        <Route />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
