@@ -1,17 +1,12 @@
 //import
 import './Dashboard.css';
-import Sidebar from '../../../components/Sidebar/Sidebar';
-import Navbar from '../../../components/Navbar/Navbar';
+import DashboardLayout from '../../../components/DashboardLayout/DashboardLayout';
 
 const Dashboard = () => {
   return (
-    <div className="dashboard">
-      <Sidebar />
-
-      <div className="dashboard-main">
-        <Navbar />
-      </div>
-    </div>
+    <DashboardLayout>
+      <h1>Dashboard</h1>
+    </DashboardLayout>
   );
 };
 
