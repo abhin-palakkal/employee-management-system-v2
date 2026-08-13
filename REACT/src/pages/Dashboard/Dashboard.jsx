@@ -12,25 +12,29 @@ const Dashboard = () => {
     const response = await axios.get('/employee');
     setData(response.data);
   };
+
+  //
+
   const salaryValue = data.reduce((accumulator, currentValue) => {
     return accumulator + Number(currentValue.salary);
   }, 0);
-  const currentYear = new Date().getFullYear();
 
+  //
+
+  const currentYear = new Date().getFullYear();
   const newEmployees = data.filter(employee => {
     const joiningYear = new Date(employee.joiningDate).getFullYear();
-
     return joiningYear === currentYear;
   });
+
+  //
+
   const departmentCount = data.reduce((accumulator, employee) => {
     const department = employee.department;
-
     if (!accumulator[department]) {
       accumulator[department] = 0;
     }
-
     accumulator[department]++;
-
     return accumulator;
   }, {});
 
@@ -59,7 +63,7 @@ const Dashboard = () => {
 
         <div className="dashboard-card">
           <h3>Departments</h3>
-          <h1>—</h1>
+          <h1>-</h1>
           <p>Coming soon</p>
         </div>
 
