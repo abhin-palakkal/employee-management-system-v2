@@ -114,6 +114,9 @@
 .employees-search {
   width: 100%;
   margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .employees-search input {
@@ -132,8 +135,29 @@
 .employees-search input::placeholder {
   color: #94a3b8;
 }
-
 .employees-search input:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+.department-filter {
+  width: 210px;
+  height: 42px;
+  padding: 0 5px;
+  border: 1px solid #dbe3ef;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #1e293b;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.department-filter:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.department-filter:hover {
+  border-color: #94a3b8;
 }

@@ -5,18 +5,27 @@ import { Table } from 'antd';
 import { useEffect, useState } from 'react';
 import axios from '../../../Utils/axios';
 import { Modal } from 'antd';
+import { Select } from 'antd';
 
 const Employees = () => {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
+  const [department, setDepartment] = useState('');
   const navigate = useNavigate();
   const getData = async () => {
     const response = await axios.get('/employee');
     setData(response.data);
   };
-  const filteredData = data.filter(item =>
-    item.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredData = data.filter(item => {
+    const matchesSearch = item.name
+      .toLowerCase()
+      .includes(search.toLowerCase());
+
+    const matchesDepartment =
+      department === '' || item.department === department;
+
+    return matchesSearch && matchesDepartment;
+  });
 
   const columns = [
     {
@@ -129,6 +138,18 @@ const Employees = () => {
             type="text"
             placeholder="Search employees..."
           />
+          <select
+            value={department}
+            onChange={e => setDepartment(e.target.value)}
+            className="department-filter"
+          >
+            <option value="">All Departments</option>
+            <option value="IT">IT</option>
+            <option value="HR">HR</option>
+            <option value="Finance">Finance</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Engineering">Engineering</option>
+          </select>
         </div>
 
         <div className="employees-table-card">
