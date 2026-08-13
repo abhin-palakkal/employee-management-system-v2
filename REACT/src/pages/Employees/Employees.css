@@ -53,3 +53,32 @@
   padding: 5px;
   box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05);
 }
+.edit-button {
+  height: 34px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: none;
+  border-radius: 5px;
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-button i {
+  font-size: 12px;
+}
+
+.edit-button:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.edit-button:active {
+  transform: scale(0.97);
+}

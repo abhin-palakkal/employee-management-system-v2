@@ -48,6 +48,19 @@ const Employees = () => {
       dataIndex: 'joiningDate',
       key: 'joiningDate',
     },
+    {
+      title: 'Actions',
+      key: 'actions',
+      render: (_, record) => (
+        <button
+          onClick={() => navigate(`/admin/editemployee/${record._id}`)}
+          className="edit-button"
+        >
+          <i className="fa-solid fa-pen"></i>
+          Edit
+        </button>
+      ),
+    },
   ];
 
   useEffect(() => {
