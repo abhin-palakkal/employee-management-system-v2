@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Table } from 'antd';
 import { useEffect, useState } from 'react';
 import axios from '../../../Utils/axios';
+import { Modal } from 'antd';
 
 const Employees = () => {
   const [data, setData] = useState([]);
@@ -58,6 +59,34 @@ const Employees = () => {
         >
           <i className="fa-solid fa-pen"></i>
           Edit
+        </button>
+      ),
+    },
+    {
+      title: 'Actions',
+      key: 'actions',
+      render: (_, record) => (
+        <button
+          onClick={() => {
+            Modal.confirm({
+              title: 'Delete Employee',
+              content: 'Are you sure you want to delete this employee?',
+              okText: 'Delete',
+              cancelText: 'Cancel',
+              onOk: async () => {
+                try {
+                  await axios.delete(`/employee/${record._id}`);
+                  getData();
+                } catch (error) {
+                  console.log(error);
+                }
+              },
+            });
+          }}
+          className="delete-button"
+        >
+          <i className="fa-solid fa-trash"></i>
+          Delete
         </button>
       ),
     },

@@ -82,3 +82,32 @@
 .edit-button:active {
   transform: scale(0.97);
 }
+.delete-button {
+  height: 34px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: none;
+  border-radius: 5px;
+  background-color: #eff6ff;
+  color: #ff0000;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-button i {
+  font-size: 12px;
+}
+
+.delete-button:hover {
+  background-color: #e51111;
+  color: #ffffff;
+}
+
+.delete-button:active {
+  transform: scale(0.97);
+}
