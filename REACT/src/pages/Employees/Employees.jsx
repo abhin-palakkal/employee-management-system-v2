@@ -8,11 +8,16 @@ import { Modal } from 'antd';
 
 const Employees = () => {
   const [data, setData] = useState([]);
+  const [search, setSearch] = useState('');
   const navigate = useNavigate();
   const getData = async () => {
     const response = await axios.get('/employee');
     setData(response.data);
   };
+  const filteredData = data.filter(item =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   const columns = [
     {
       title: 'Name',
@@ -115,9 +120,19 @@ const Employees = () => {
             Add Employee
           </button>
         </div>
+        <div className="employees-search">
+          <input
+            value={search}
+            onChange={e => {
+              setSearch(e.target.value);
+            }}
+            type="text"
+            placeholder="Search employees..."
+          />
+        </div>
 
         <div className="employees-table-card">
-          <Table columns={columns} dataSource={data} rowKey="_id" />
+          <Table columns={columns} dataSource={filteredData} rowKey="_id" />
         </div>
       </div>
     </DashboardLayout>

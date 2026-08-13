@@ -111,3 +111,29 @@
 .delete-button:active {
   transform: scale(0.97);
 }
+.employees-search {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.employees-search input {
+  width: 300px;
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid #dbe3ef;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #1e293b;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.employees-search input::placeholder {
+  color: #94a3b8;
+}
+
+.employees-search input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
