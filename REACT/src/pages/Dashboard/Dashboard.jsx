@@ -22,6 +22,17 @@ const Dashboard = () => {
 
     return joiningYear === currentYear;
   });
+  const departmentCount = data.reduce((accumulator, employee) => {
+    const department = employee.department;
+
+    if (!accumulator[department]) {
+      accumulator[department] = 0;
+    }
+
+    accumulator[department]++;
+
+    return accumulator;
+  }, {});
 
   useEffect(() => {
     getData();
@@ -67,11 +78,43 @@ const Dashboard = () => {
 
       <div className="dashboard-end">
         <div className="recent-employees">
-          <h2>Recent Employees</h2>
+          <div className="dashboard-section-header">
+            <h2>Employee List</h2>
+            <p
+              onClick={() => {
+                navigate('/admin/employees');
+              }}
+            >
+              View all →
+            </p>
+          </div>
+
+          {data.slice(0, 5).map(employee => (
+            <div className="employee-row" key={employee._id}>
+              <div>
+                <h3>{employee.name}</h3>
+                <p>{employee.position}</p>
+              </div>
+              <p>{employee.department}</p>
+            </div>
+          ))}
         </div>
 
         <div className="department-summary">
           <h2>Employees by Department</h2>
+
+          <div className="department-list">
+            {Object.entries(departmentCount).map(([department, count]) => (
+              <div className="department-row" key={department}>
+                <div>
+                  <h3>{department}</h3>
+                  <p>{count} employees</p>
+                </div>
+
+                <span>{count}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </DashboardLayout>
