@@ -1,10 +1,10 @@
 //import
+require('dotenv').config();
 const express = require('express');
 const chalk = require('chalk');
 const db = require('./db');
 const cors = require('cors');
 const routes = require('./routes/index');
-require('dotenv').config();
 
 //connect
 const app = express();
