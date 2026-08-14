@@ -4,7 +4,7 @@ const chalk = require('chalk');
 
 //connect
 mongoose
-  .connect('mongodb://localhost:27017/employeeDB')
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log(chalk.yellow('DB CONNECTED'));
   })
