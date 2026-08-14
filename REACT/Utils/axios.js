@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:3000/api/',
+  baseURL: 'https://employee-management-system-v2-azure.vercel.app/api/',
   timeout: 10000,
   headers: { Authorization: `Bearer ${localStorage.getItem('TOKEN')}` },
 });
